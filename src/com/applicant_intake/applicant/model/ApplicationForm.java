@@ -1,7 +1,5 @@
 package com.applicant_intake.applicant.model;
 
-import com.applicant_intake.applicant.types.ApplicationFormStatus;
-
 
 public class ApplicationForm {
     private String firstName;
@@ -26,7 +24,7 @@ public class ApplicationForm {
         this.guardianName = guardianName;
         this.guardianContact = guardianContact;
         this.guardianEmail = guardianEmail;
-        this.id = "APP-2026-";
+        this.id = "APP2026"+email.split("@")[0];
         this.status = "PENDING"; // Default status is PENDING
     }
 

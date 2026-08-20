@@ -22,7 +22,6 @@ public class MainMenu {
             applicationService.createApplication();
         } else if (option == 2) {
             System.out.println("You selected option 2: Search Application");
-            // Call the search application method or class here
         } else if (option == 3) {
             System.out.println("You selected option 3: Reviewer Mode");
             // Call the reviewer mode method or class here
