@@ -1,4 +1,4 @@
-package com.applicant_intake.applicant.types;
+package com.applicant.intake.types;
 
 public enum ApplicationFormStatus {
     PENDING,

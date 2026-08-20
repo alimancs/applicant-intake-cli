@@ -1,5 +1,0 @@
-./Main.java
-./com/applicant_intake/applicant/service/ApplicationService.java
-./com/applicant_intake/applicant/model/ApplicationForm.java
-./com/applicant_intake/applicant/ui/MainMenu.java
-./com/applicant_intake/applicant/types/ApplicationFormStatus.java

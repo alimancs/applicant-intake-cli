@@ -1,7 +1,7 @@
-package com.applicant_intake.applicant.ui;
+package com.applicant.intake.ui;
 
 import java.util.Scanner;
-import com.applicant_intake.applicant.service.ApplicationService;
+import com.applicant.intake.service.ApplicationService;
 
 public class MainMenu {
     public void displayMenu() {
