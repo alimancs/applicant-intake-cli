@@ -1,7 +1,7 @@
-package com.applicant_intake.applicant.service;
+package com.applicant.intake.service;
 
 import java.util.Scanner;
-import com.applicant_intake.applicant.model.ApplicationForm;
+import com.applicant.intake.model.ApplicationForm;
 
 public class ApplicationService {
     public void createApplication() {

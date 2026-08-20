@@ -1,4 +1,6 @@
-package com.applicant_intake.applicant.model;
+package com.applicant.intake.model;
+
+import com.applicant.intake.types.ApplicationFormStatus;
 
 
 public class ApplicationForm {
@@ -12,7 +14,7 @@ public class ApplicationForm {
     private String guardianContact;
     private String guardianEmail;
     private String id;
-    private String status;
+    private ApplicationFormStatus status;
 
     public ApplicationForm(String firstName, String lastName, String email, String program, String university, String gpa, String guardianName, String guardianContact, String guardianEmail) {
         this.firstName = firstName;
@@ -24,8 +26,8 @@ public class ApplicationForm {
         this.guardianName = guardianName;
         this.guardianContact = guardianContact;
         this.guardianEmail = guardianEmail;
-        this.id = "APP2026"+email.split("@")[0];
-        this.status = "PENDING"; // Default status is PENDING
+        this.id = "APP2026"+email.split("@")[0].substring(0,5);
+        this.status = ApplicationFormStatus.PENDING;
     }
 
     public String getFirstName() {
@@ -113,11 +115,11 @@ public class ApplicationForm {
         return id;
     }
 
-    public String getStatus() {
+    public ApplicationFormStatus getStatus() {
         return status;
     }
 
-    public String setStatus(String newStatus) {
+    public ApplicationFormStatus setStatus(ApplicationFormStatus newStatus) {
         this.status = newStatus;
         return status;
     }
