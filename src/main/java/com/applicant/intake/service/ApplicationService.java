@@ -3,6 +3,9 @@ package com.applicant.intake.service;
 import java.util.Scanner;
 import com.applicant.intake.model.ApplicationForm;
 
+import java.io.IOException;
+import java.util.List;
+
 public class ApplicationService {
     public void createApplication() {
         System.out.println("\n----- PERSONAL INFORMATION -----");
@@ -33,8 +36,23 @@ public class ApplicationService {
 
         System.out.println(firstName +" "+ lastName +" "+ email +" "+ program +" "+ university +" "+ gpa +" "+ guardianName +" "+ guardianContact +" "+ guardianEmail);
 
-        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpa, guardianName, guardianContact, guardianEmail);
+        ApplicationRepository repo = new ApplicationRepository();
+        int applicationIndex = 0;
+        try {
+            List<ApplicationForm> forms = repo.load();
+            applicationIndex = forms.size()+1;
+        } catch (IOException exception) {
+            System.out.println("Unable to load existing applications: " + exception.getMessage());
+        }
+        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpa, guardianName, guardianContact, guardianEmail, applicationIndex);
 
-        System.out.println("\n\n=========================================\nAPPLICATION SUBMITTED SUCCESSFULLY\n\nApplication ID: " + newApplication.getId() + "\nStatus:PENDING" + "\n\nPlease keep your application ID" + "\n=========================================");
+        try {
+            repo.save(newApplication);
+            System.out.println("\n\n=========================================\nAPPLICATION SUBMITTED SUCCESSFULLY\n\nApplication ID: " + newApplication.getId() + "\nStatus:PENDING" + "\n\nPlease keep your application ID" + "\n=========================================");
+        } catch (IOException exception) {
+            System.out.println("Unable to save new application: "+ exception.getMessage()+"\nPlease start application again\nNEW APPLICATION FORM STARTED!");
+            createApplication();
+        }
+
     }
 }
