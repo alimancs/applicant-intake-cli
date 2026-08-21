@@ -1,40 +1,54 @@
 package com.applicant.intake.service;
 
-import java.util.Scanner;
 import com.applicant.intake.model.ApplicationForm;
-
+import com.applicant.intake.util.FormValidator;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
+
 
 public class ApplicationService {
     public void createApplication() {
         System.out.println("\n----- PERSONAL INFORMATION -----");
         Scanner scanner = new Scanner(System.in);
+        
         System.out.print("First Name: ");
         String firstName = scanner.nextLine();
         System.out.print("Last Name: ");
         String lastName = scanner.nextLine();
+
         System.out.print("Email: ");
         String email = scanner.nextLine();  
+        boolean isValidEmail = FormValidator.isValidEmail(email);
+        while (!isValidEmail) {
+            System.out.print("Invalid email address!\nEmail: ");
+            email = scanner.nextLine();  
+            isValidEmail = FormValidator.isValidEmail(email);
+        }
 
         System.out.println("\n\n----- EDUCATION INFORMATION -----");
         System.out.print("Program: ");
         String program = scanner.nextLine();
         System.out.print("University/College: ");
         String university = scanner.nextLine();
-        System.out.print("GPA: ");
-        String gpaInput = scanner.nextLine();
-        String gpa = gpaInput; // Store GPA as a string
+
+        System.out.print("Your GPA: ");
+        Double gpaInput = scanner.nextDouble();
+        boolean isValidGpa = FormValidator.isValidGpa(gpaInput);
+        while (!isValidGpa) {
+            System.out.print("Invalid GPA!\nYour GPA: ");
+            gpaInput = scanner.nextDouble();  
+            isValidGpa = FormValidator.isValidGpa(gpaInput);
+        }
+        scanner.nextLine();
 
         System.out.println("\n\n----- Guardian Information -----");
-        System.out.print("Guardian Name: ");
+        System.out.print("Guardian Full Name: ");
         String guardianName = scanner.nextLine();
         System.out.print("Guardian Contact: ");
         String guardianContact = scanner.nextLine();   
         System.out.print("Guardian Email: ");
         String guardianEmail = scanner.nextLine();
-
-        System.out.println(firstName +" "+ lastName +" "+ email +" "+ program +" "+ university +" "+ gpa +" "+ guardianName +" "+ guardianContact +" "+ guardianEmail);
 
         ApplicationRepository repo = new ApplicationRepository();
         int applicationIndex = 0;
@@ -44,7 +58,7 @@ public class ApplicationService {
         } catch (IOException exception) {
             System.out.println("Unable to load existing applications: " + exception.getMessage());
         }
-        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpa, guardianName, guardianContact, guardianEmail, applicationIndex);
+        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpaInput, guardianName, guardianContact, guardianEmail, applicationIndex);
 
         try {
             repo.save(newApplication);
