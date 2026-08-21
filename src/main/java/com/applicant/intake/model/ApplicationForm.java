@@ -8,7 +8,7 @@ public class ApplicationForm {
     private String email;
     private String program;
     private String university;
-    private double gpa;
+    private Double gpa;
     private String guardianName;
     private String guardianContact;
     private String guardianEmail;
@@ -17,7 +17,7 @@ public class ApplicationForm {
 
     public ApplicationForm() {};
 
-    public ApplicationForm(String firstName, String lastName, String email, String program, String university, double gpa, String guardianName, String guardianContact, String guardianEmail, int index) {
+    public ApplicationForm(String firstName, String lastName, String email, String program, String university, Double gpa, String guardianName, String guardianContact, String guardianEmail, int index) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -138,6 +138,6 @@ public class ApplicationForm {
                 ", guardianContact='" + guardianContact + '\'' +
                 ", guardianEmail='" + guardianEmail + '\'' +
                 ", id='" + id + '\'' +
-                '}';
+            '}';
     };
 }

@@ -1,1 +1,13 @@
-[ ]
+[ {
+  "firstName" : "alimam",
+  "lastName" : "ahmed",
+  "email" : "aliman295200@gmail.com",
+  "program" : "cs",
+  "university" : "abu",
+  "gpa" : 3.0,
+  "guardianName" : "ahmed obori",
+  "guardianContact" : "09014349736",
+  "guardianEmail" : "aliman2952003@gmail.com",
+  "id" : "app2026alim1",
+  "status" : "PENDING"
+} ]
