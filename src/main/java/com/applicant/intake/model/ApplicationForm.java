@@ -2,7 +2,6 @@ package com.applicant.intake.model;
 
 import com.applicant.intake.types.ApplicationFormStatus;
 
-
 public class ApplicationForm {
     private String firstName;
     private String lastName;
@@ -16,7 +15,9 @@ public class ApplicationForm {
     private String id;
     private ApplicationFormStatus status;
 
-    public ApplicationForm(String firstName, String lastName, String email, String program, String university, String gpa, String guardianName, String guardianContact, String guardianEmail) {
+    public ApplicationForm() {};
+
+    public ApplicationForm(String firstName, String lastName, String email, String program, String university, String gpa, String guardianName, String guardianContact, String guardianEmail, int index) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -26,8 +27,8 @@ public class ApplicationForm {
         this.guardianName = guardianName;
         this.guardianContact = guardianContact;
         this.guardianEmail = guardianEmail;
-        this.id = "APP2026"+email.split("@")[0].substring(0,5);
         this.status = ApplicationFormStatus.PENDING;
+        this.id = "app2026"+email.split("@")[0].substring(0,4)+index;
     }
 
     public String getFirstName() {
