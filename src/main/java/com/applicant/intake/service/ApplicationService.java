@@ -1,10 +1,10 @@
 package com.applicant.intake.service;
 
-import java.util.Scanner;
 import com.applicant.intake.model.ApplicationForm;
-
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
+
 
 public class ApplicationService {
     public void createApplication() {
@@ -23,8 +23,7 @@ public class ApplicationService {
         System.out.print("University/College: ");
         String university = scanner.nextLine();
         System.out.print("GPA: ");
-        String gpaInput = scanner.nextLine();
-        String gpa = gpaInput; // Store GPA as a string
+        double gpaInput = scanner.nextDouble();
 
         System.out.println("\n\n----- Guardian Information -----");
         System.out.print("Guardian Name: ");
@@ -34,7 +33,7 @@ public class ApplicationService {
         System.out.print("Guardian Email: ");
         String guardianEmail = scanner.nextLine();
 
-        System.out.println(firstName +" "+ lastName +" "+ email +" "+ program +" "+ university +" "+ gpa +" "+ guardianName +" "+ guardianContact +" "+ guardianEmail);
+        System.out.println(firstName +" "+ lastName +" "+ email +" "+ program +" "+ university +" "+ gpaInput +" "+ guardianName +" "+ guardianContact +" "+ guardianEmail);
 
         ApplicationRepository repo = new ApplicationRepository();
         int applicationIndex = 0;
@@ -44,7 +43,7 @@ public class ApplicationService {
         } catch (IOException exception) {
             System.out.println("Unable to load existing applications: " + exception.getMessage());
         }
-        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpa, guardianName, guardianContact, guardianEmail, applicationIndex);
+        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpaInput, guardianName, guardianContact, guardianEmail, applicationIndex);
 
         try {
             repo.save(newApplication);
