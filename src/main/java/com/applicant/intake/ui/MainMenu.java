@@ -1,25 +1,23 @@
 package com.applicant.intake.ui;
 
-import java.util.Scanner;
+import com.applicant.intake.model.Menu;
 import com.applicant.intake.service.ApplicationService;
 
-public class MainMenu {
+public class MainMenu extends Menu {
+
+    @Override
     public void displayMenu() {
         System.out.println("=========================================\n        APPLICANT INTAKE SYSTEM\n=========================================");
         System.out.println("\n1. Apply\n2. Search Application\n3. Reviewer Mode\n4. List Applications\n5. Exit");
     }
 
-    public int getUserOption() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Please select an option: ");
-        int option = scanner.nextInt();
-        return option;
-    }
-
+    @Override
     public void handleOption(int option) {
         if (option == 1) {
-            ApplicationService applicationService = new ApplicationService();
-            applicationService.createApplication();
+            ApplicationService.createApplication();
+            displayMenu();
+            int newOption = getUserOption();
+            handleOption(newOption);
         } else if (option == 2) {
             System.out.println("You selected option 2: Search Application");
         } else if (option == 3) {
@@ -34,6 +32,6 @@ public class MainMenu {
             System.out.println("Invalid option selected. Please try again.");
             int newOption = getUserOption();
             handleOption(newOption);
-        }
+        };
     }
 }

@@ -127,7 +127,7 @@ public class ApplicationForm {
 
     @Override
     public String toString() {
-        return "Application{" +
+        return "Application {" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

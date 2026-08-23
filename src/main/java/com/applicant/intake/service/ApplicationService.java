@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 public class ApplicationService {
-    public void createApplication() {
+    public static void createApplication() {
         System.out.println("\n----- PERSONAL INFORMATION -----");
         Scanner scanner = new Scanner(System.in);
         
@@ -20,11 +20,14 @@ public class ApplicationService {
         System.out.print("Email: ");
         String email = scanner.nextLine();  
         boolean isValidEmail = FormValidator.isValidEmail(email);
-        while (!isValidEmail) {
-            System.out.print("Invalid email address!\nEmail: ");
+        boolean emailExists = FormValidator.doesEmailExist(email);
+        while (!isValidEmail || emailExists) {
+            System.out.print(!isValidEmail?"Invalid email address!\nEmail: ":"Application with this email address already exists!\nEmail: ");
             email = scanner.nextLine();  
-            isValidEmail = FormValidator.isValidEmail(email);
-        }
+            isValidEmail = FormValidator.isValidEmail(email.toLowerCase());
+            emailExists = FormValidator.doesEmailExist(email.toLowerCase());
+        };
+
 
         System.out.println("\n\n----- EDUCATION INFORMATION -----");
         System.out.print("Program: ");
@@ -58,7 +61,7 @@ public class ApplicationService {
         } catch (IOException exception) {
             System.out.println("Unable to load existing applications: " + exception.getMessage());
         }
-        ApplicationForm newApplication = new ApplicationForm(firstName, lastName, email, program, university, gpaInput, guardianName, guardianContact, guardianEmail, applicationIndex);
+        ApplicationForm newApplication = new ApplicationForm(firstName.toLowerCase(), lastName.toLowerCase(), email.toLowerCase(), program.toLowerCase(), university.toLowerCase(), gpaInput, guardianName.toLowerCase(), guardianContact, guardianEmail.toLowerCase(), applicationIndex);
 
         try {
             repo.save(newApplication);

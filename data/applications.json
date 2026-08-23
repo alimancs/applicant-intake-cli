@@ -1,13 +1,37 @@
 [ {
   "firstName" : "alimam",
   "lastName" : "ahmed",
-  "email" : "aliman295200@gmail.com",
+  "email" : "aliman2952003@gmail.com",
+  "program" : "CS",
+  "university" : "ABU Zaria",
+  "gpa" : 4.0,
+  "guardianName" : "ahmed obori",
+  "guardianContact" : "09014349736",
+  "guardianEmail" : "ahmed@gmail.com",
+  "id" : "app2026alim1",
+  "status" : "PENDING"
+}, {
+  "firstName" : "alimam",
+  "lastName" : "ahmed",
+  "email" : "aliman@gmail.com",
+  "program" : "cs",
+  "university" : "ahmadu bello university",
+  "gpa" : 5.0,
+  "guardianName" : "ali baja",
+  "guardianContact" : "12345678",
+  "guardianEmail" : "qwerty100@gmail.com",
+  "id" : "app2026alim2",
+  "status" : "PENDING"
+}, {
+  "firstName" : "alimam",
+  "lastName" : "ahmed",
+  "email" : "example@gmail.com",
   "program" : "cs",
   "university" : "abu",
   "gpa" : 3.0,
-  "guardianName" : "ahmed obori",
-  "guardianContact" : "09014349736",
-  "guardianEmail" : "aliman2952003@gmail.com",
-  "id" : "app2026alim1",
+  "guardianName" : "kareem abdul",
+  "guardianContact" : "2349014349736",
+  "guardianEmail" : "kareemabdul1200@gmail.com",
+  "id" : "app2026exam3",
   "status" : "PENDING"
 } ]
