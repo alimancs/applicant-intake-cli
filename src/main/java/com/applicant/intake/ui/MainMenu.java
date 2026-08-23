@@ -15,11 +15,10 @@ public class MainMenu extends Menu {
     public void handleOption(int option) {
         if (option == 1) {
             ApplicationService.createApplication();
-            displayMenu();
-            int newOption = getUserOption();
-            handleOption(newOption);
+            loadMenu();
         } else if (option == 2) {
-            System.out.println("You selected option 2: Search Application");
+            SearchApplicationMenu searchMenu = new SearchApplicationMenu();
+            searchMenu.loadMenu();
         } else if (option == 3) {
             System.out.println("You selected option 3: Reviewer Mode");
             // Call the reviewer mode method or class here

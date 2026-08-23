@@ -1,6 +1,7 @@
 package com.applicant.intake.ui;
 
 import com.applicant.intake.model.Menu;
+import com.applicant.intake.service.ApplicationService;
 
 public class SearchApplicationMenu extends Menu {
     @Override
@@ -12,14 +13,13 @@ public class SearchApplicationMenu extends Menu {
     @Override
     public void handleOption(int option) {
         if (option == 1) {
-            System.out.println("You selected option 1: Search Application");
+            ApplicationService.searchApplicationById();
         } else if (option == 2) {
-            System.out.println("You selected option 2: Search Application");
+            ApplicationService.searchApplicationByEmail();
         } else if (option == 3) {
-            System.out.println("You selected option 3: Search Application");
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.loadMenu();
         } else if (option == 4) {
-            System.out.println("You selected option 4: Go back");
-        } else {
             System.out.println("Exiting the system. Goodbye!");
         };
     }
