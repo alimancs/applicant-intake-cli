@@ -72,4 +72,62 @@ public class ApplicationService {
         }
 
     }
+
+    public static void searchApplicationById() {
+        System.out.println("\n\n----- Search Application By ID -----");
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter application ID: ");
+        String id = scanner.nextLine();
+        ApplicationForm result = null;
+
+        ApplicationRepository repo = new ApplicationRepository();
+        try {
+            List<ApplicationForm> forms = repo.load();
+            for (ApplicationForm form: forms) {
+                if (form.getId().equals(id)) {
+                    result = form;
+                    break;
+                }
+            };
+        } catch (IOException exception) {
+            System.out.println("Unable to load existing applications: " + exception.getMessage());
+        }
+
+        if (result!=null) {
+            System.out.println(result.toString());
+        } else {
+            System.out.println("\n\nApplication with id: "+id+" not found!\nTry again");
+        }
+        searchApplicationById();
+    };
+
+    public static void searchApplicationByEmail() {
+        System.out.println("\n\n----- Search Application By Email-----");
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter application email: ");
+        String email = scanner.nextLine();
+        ApplicationForm result = null;
+
+        ApplicationRepository repo = new ApplicationRepository();
+        try {
+            List<ApplicationForm> forms = repo.load();
+            for (ApplicationForm form: forms) {
+                if (form.getEmail().equals(email)) {
+                    result = form;
+                    break;
+                }
+            };
+        } catch (IOException exception) {
+            System.out.println("Unable to load existing applications: " + exception.getMessage());
+        }
+
+        if (result!=null) {
+            System.out.println(result.toString());
+        } else {
+            System.out.println("\n\nApplication with id: "+email+" not found!\nTry again");
+        }
+        searchApplicationByEmail();
+    };
 }
