@@ -8,7 +8,7 @@ public class MainMenu extends Menu {
     @Override
     public void displayMenu() {
         System.out.println("=========================================\n        APPLICANT INTAKE SYSTEM\n=========================================");
-        System.out.println("\n1. Apply\n2. Search Application\n3. Reviewer Mode\n4. List Applications\n5. Exit");
+        System.out.println("\n1. Apply\n2. Search Application\n3. Reviewer Mode\n4. Exit");
     }
 
     @Override
@@ -23,9 +23,6 @@ public class MainMenu extends Menu {
             ReviewerModeMenu reviewModeMenu = new ReviewerModeMenu();
             reviewModeMenu.loadMenu();
         } else if (option == 4) {
-            System.out.println("You selected option 4: List Applications");
-            // Call the list applications method or class here
-        } else if (option == 5) {
             System.out.println("Exiting the system. Goodbye!");
         } else {
             System.out.println("Invalid option selected. Please try again.");
