@@ -20,8 +20,8 @@ public class MainMenu extends Menu {
             SearchApplicationMenu searchMenu = new SearchApplicationMenu();
             searchMenu.loadMenu();
         } else if (option == 3) {
-            System.out.println("You selected option 3: Reviewer Mode");
-            // Call the reviewer mode method or class here
+            ReviewerModeMenu reviewModeMenu = new ReviewerModeMenu();
+            reviewModeMenu.loadMenu();
         } else if (option == 4) {
             System.out.println("You selected option 4: List Applications");
             // Call the list applications method or class here
