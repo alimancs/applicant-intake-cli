@@ -13,18 +13,6 @@
 }, {
   "firstName" : "alimam",
   "lastName" : "ahmed",
-  "email" : "aliman@gmail.com",
-  "program" : "cs",
-  "university" : "ahmadu bello university",
-  "gpa" : 5.0,
-  "guardianName" : "ali baja",
-  "guardianContact" : "12345678",
-  "guardianEmail" : "qwerty100@gmail.com",
-  "id" : "app2026alim2",
-  "status" : "PENDING"
-}, {
-  "firstName" : "alimam",
-  "lastName" : "ahmed",
   "email" : "example@gmail.com",
   "program" : "cs",
   "university" : "abu",
@@ -34,4 +22,16 @@
   "guardianEmail" : "kareemabdul1200@gmail.com",
   "id" : "app2026exam3",
   "status" : "PENDING"
+}, {
+  "firstName" : "alimam",
+  "lastName" : "ahmed",
+  "email" : "aliman@gmail.com",
+  "program" : "cs",
+  "university" : "ahmadu bello university",
+  "gpa" : 5.0,
+  "guardianName" : "ali baja",
+  "guardianContact" : "12345678",
+  "guardianEmail" : "qwerty100@gmail.com",
+  "id" : "app2026alim2",
+  "status" : "REJECTED"
 } ]

@@ -21,6 +21,10 @@ public class SearchApplicationMenu extends Menu {
             mainMenu.loadMenu();
         } else if (option == 4) {
             System.out.println("Exiting the system. Goodbye!");
+        } else {
+            System.out.println("Invalid option selected. Please try again.");
+            int newOption = getUserOption();
+            handleOption(newOption);
         };
     }
 }

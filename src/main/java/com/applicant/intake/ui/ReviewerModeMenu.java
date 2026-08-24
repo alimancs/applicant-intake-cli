@@ -7,25 +7,21 @@ public class ReviewerModeMenu extends Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("=========================================\n        APPLICANT INTAKE SYSTEM\n=========================================");
-        System.out.println("\n1. V\n2. Search Application\n3. Reviewer Mode\n4. List Applications\n5. Exit");
+        System.out.println("=========================================\n        REVIEWER MODE\n=========================================");
+        System.out.println("\n1. Review Application \n2. View summary\n3. Back\n4. Exit");
     }
 
     @Override
     public void handleOption(int option) {
         if (option == 1) {
-            ApplicationService.createApplication();
-            loadMenu();
+            ApplicationService.reviewApplication();
         } else if (option == 2) {
-            SearchApplicationMenu searchMenu = new SearchApplicationMenu();
-            searchMenu.loadMenu();
-        } else if (option == 3) {
             System.out.println("You selected option 3: Reviewer Mode");
             // Call the reviewer mode method or class here
+        } else if (option == 3) {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.loadMenu();
         } else if (option == 4) {
-            System.out.println("You selected option 4: List Applications");
-            // Call the list applications method or class here
-        } else if (option == 5) {
             System.out.println("Exiting the system. Goodbye!");
         } else {
             System.out.println("Invalid option selected. Please try again.");
