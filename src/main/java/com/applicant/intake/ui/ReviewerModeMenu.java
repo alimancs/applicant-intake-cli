@@ -16,8 +16,7 @@ public class ReviewerModeMenu extends Menu {
         if (option == 1) {
             ApplicationService.reviewApplication();
         } else if (option == 2) {
-            System.out.println("You selected option 3: Reviewer Mode");
-            // Call the reviewer mode method or class here
+            ApplicationService.viewSummary();
         } else if (option == 3) {
             MainMenu mainMenu = new MainMenu();
             mainMenu.loadMenu();
