@@ -24,12 +24,16 @@ public class ApplicationRepository {
     public void save(ApplicationForm application) throws IOException {
         List<ApplicationForm> applications = load();
         applications.add(application);
+        File parent = file.getParentFile();
+        if (parent != null && !parent.exists() && !parent.mkdirs()) {
+            throw new IOException("Unable to create data directory: " + parent);
+        }
         objectMapper.writeValue(file, applications);
     }
 
     public void removeById(String id) throws IOException {
         List<ApplicationForm> applications = load();
-        applications.removeIf(a->a.getId().equals(id));
+        applications.removeIf(a -> a != null && id.equals(a.getId()));
         objectMapper.writeValue(file, applications);
     }
 
@@ -39,10 +43,11 @@ public class ApplicationRepository {
             return new ArrayList<>();
         }
 
-        return objectMapper.readValue(
+        List<ApplicationForm> applications = objectMapper.readValue(
                 file,
                 new TypeReference<List<ApplicationForm>>() {}
         );
+        return applications == null ? new ArrayList<>() : applications;
     }
 
 }

@@ -17,14 +17,12 @@ public class SearchApplicationMenu extends Menu {
         } else if (option == 2) {
             ApplicationService.searchApplicationByEmail();
         } else if (option == 3) {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.loadMenu();
+            stopMenu();
         } else if (option == 4) {
             System.out.println("Exiting the system. Goodbye!");
+            stopMenu();
         } else {
             System.out.println("Invalid option selected. Please try again.");
-            int newOption = getUserOption();
-            handleOption(newOption);
-        };
+        }
     }
 }

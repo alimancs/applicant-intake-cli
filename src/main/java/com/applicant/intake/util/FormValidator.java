@@ -22,7 +22,7 @@ public class FormValidator {
             List<ApplicationForm> forms = repo.load();
             for (int i = 0;i<=forms.size()-1;i++) {
                 // System.out.println("Comparing: "+forms.get(i).getEmail()+" --> "+email);
-                if (forms.get(i).getEmail().equals(email)) {
+                if (forms.get(i) != null && email.equalsIgnoreCase(forms.get(i).getEmail())) {
                     emailExists=true;
                     break;
                 } 

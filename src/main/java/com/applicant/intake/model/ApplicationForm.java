@@ -28,7 +28,9 @@ public class ApplicationForm {
         this.guardianContact = guardianContact;
         this.guardianEmail = guardianEmail;
         this.status = ApplicationFormStatus.PENDING;
-        this.id = "app2026"+email.split("@")[0].substring(0,4)+index;
+        String emailPrefix = email.substring(0, email.indexOf('@'));
+        String idPrefix = emailPrefix.substring(0, Math.min(4, emailPrefix.length()));
+        this.id = "app2026" + idPrefix + index;
     }
 
     public String getFirstName() {

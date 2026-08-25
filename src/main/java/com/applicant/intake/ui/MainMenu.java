@@ -15,7 +15,6 @@ public class MainMenu extends Menu {
     public void handleOption(int option) {
         if (option == 1) {
             ApplicationService.createApplication();
-            loadMenu();
         } else if (option == 2) {
             SearchApplicationMenu searchMenu = new SearchApplicationMenu();
             searchMenu.loadMenu();
@@ -23,14 +22,12 @@ public class MainMenu extends Menu {
             ReviewerModeMenu reviewModeMenu = new ReviewerModeMenu();
             reviewModeMenu.loadMenu();
         } else if (option == 4) {
-            System.out.println("You selected option 4: List Applications");
-            // Call the list applications method or class here
+            ApplicationService.listApplications();
         } else if (option == 5) {
             System.out.println("Exiting the system. Goodbye!");
+            stopMenu();
         } else {
             System.out.println("Invalid option selected. Please try again.");
-            int newOption = getUserOption();
-            handleOption(newOption);
-        };
+        }
     }
 }
