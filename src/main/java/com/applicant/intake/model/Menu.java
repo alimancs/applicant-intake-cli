@@ -1,22 +1,26 @@
 package com.applicant.intake.model;
 
-import java.util.Scanner;
+import com.applicant.intake.util.ConsoleInput;
 
 public abstract class Menu {
-   
+    private boolean running;
+
     public int getUserOption() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Please select an option: ");
-        int option = scanner.nextInt();
-        return option;
+        return ConsoleInput.readInt("Please select an option: ");
     }
 
     public abstract void displayMenu();
     public abstract void handleOption(int option);
 
     public void loadMenu() {
-        displayMenu();
-        int option = getUserOption();
-        handleOption(option);
+        running = true;
+        while (running) {
+            displayMenu();
+            handleOption(getUserOption());
+        }
+    }
+
+    protected void stopMenu() {
+        running = false;
     }
 }
