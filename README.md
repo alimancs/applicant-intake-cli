@@ -296,17 +296,3 @@ Run the application:
 ```bash
 mvn exec:java
 ```
-
-The project currently has no automated test suite. Manual checks should cover invalid menu input, invalid GPA input, form creation, duplicate email handling, search, reviewer decisions, summary output, and pagination.
-
-## Current Limitations
-
-- Persistence is JSON-only; CSV export is not implemented.
-- The application ID format is based on the email prefix and list size, so it is intended for this local demonstration rather than distributed or concurrent use.
-- Guardian email and several text fields are collected but are not subject to the same detailed validation as the primary email and GPA.
-- Reviewer updates currently remove and then save a record, rather than using an atomic file replacement.
-- The data file is local and relative to the directory from which the command is run.
-
-## License
-
-No license has been specified for this project.
